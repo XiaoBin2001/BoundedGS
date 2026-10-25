@@ -1,0 +1,154 @@
+{
+  "resource_limits": {
+    "cpu_max_percent": 45,
+    "memory_max_percent": 45,
+    "memory_mode": "guard"
+  },
+  "data_root": "data/HR-Data",
+  "repeat": 1,
+  "resume_training": false,
+  "gpu_auto_select": false,
+  "gpu_id": 0,
+  "stop_on_error": true,
+  "run_postprocess": true,
+  "cleanup_repeats": false,
+  "postprocess_args": {
+    "include_train": false,
+    "skip_test": false,
+    "no_save_test_images": false,
+    "no_save_train_images": true,
+    "fps_warmup_rounds": 3,
+    "fps_measure_rounds": 5,
+    "group_grid": 1,
+    "low_memory_lpips": true,
+    "iteration": 30000
+  },
+  "train_args": {
+    "progress_bar_width": 110,
+    "report_lpips_test": false,
+    "report_lpips_train": false,
+    "save_final_model": true,
+    "iterations": 30000,
+    "budget_warmup_until_offset": 500,
+    "position_lr_init": 1e-05,
+    "position_lr_final": 1e-06,
+    "position_lr_max_steps": 30000,
+    "densification_interval": 200,
+    "densify_from_iter": 1000,
+    "densify_until_iter": 15000,
+    "densify_grad_threshold": 0.0001,
+    "min_opacity": 0.02,
+    "optimizer_type": "ours_adam",
+    "final_budget_mode": "rate",
+    "final_rate": 0.5,
+    "reg_prune_from_iter": 15000,
+    "reg_prune_until_iter": 19000,
+    "structure_update_mode": "single_pass",
+    "structure_rebuild_backend": "cpu",
+    "use_memory_lifecycle_trim": true,
+    "resolution": 1,
+    "sh_degree": 3,
+    "eval": true,
+    "data_device": "cpu",
+    "use_in_memory_jpeg_cache": true,
+    "jpeg_prefetch_count": 16,
+    "images": "images",
+    "depths": "",
+    "init_type": "sfm",
+    "max_initial_points": -1,
+    "training_image_upsample_factor": 1,
+    "white_background": false,
+    "random_background": false,
+    "antialiasing": false,
+    "lambda_dssim": 0.2,
+    "save_iterations": [
+      30000
+    ],
+    "group_grid": 1,
+    "projection_mode": "full",
+    "leaf_raster_budget_mib": 0.0,
+    "use_gns_pruning": true,
+    "checkpoint_iterations": []
+  },
+  "output_root": "output/original",
+  "scenes": [
+    {
+      "name": "bicycle",
+      "train_args": {
+        "budget": 12000000
+      }
+    },
+    {
+      "name": "flowers",
+      "train_args": {
+        "budget": 12000000
+      }
+    },
+    {
+      "name": "garden",
+      "train_args": {
+        "budget": 12000000
+      }
+    },
+    {
+      "name": "stump",
+      "train_args": {
+        "budget": 12000000
+      }
+    },
+    {
+      "name": "treehill",
+      "train_args": {
+        "budget": 12000000
+      }
+    },
+    {
+      "name": "bonsai",
+      "train_args": {
+        "budget": 6000000
+      }
+    },
+    {
+      "name": "counter",
+      "train_args": {
+        "budget": 6000000
+      }
+    },
+    {
+      "name": "kitchen",
+      "train_args": {
+        "budget": 6000000
+      }
+    },
+    {
+      "name": "room",
+      "train_args": {
+        "budget": 6000000
+      }
+    },
+    {
+      "name": "Barn",
+      "train_args": {
+        "budget": 8000000
+      }
+    },
+    {
+      "name": "Family",
+      "train_args": {
+        "budget": 8000000
+      }
+    },
+    {
+      "name": "Train",
+      "train_args": {
+        "budget": 8000000
+      }
+    },
+    {
+      "name": "Truck",
+      "train_args": {
+        "budget": 8000000
+      }
+    }
+  ]
+}

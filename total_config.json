@@ -1,0 +1,125 @@
+{
+  "runner_config": {
+    "resource_limits": {
+      "cpu_max_percent": 45,
+      "memory_max_percent": 45,
+      "memory_mode": "guard"
+    },
+    "data_root": "data/HR-Data",
+    "repeat": 1,
+    "resume_training": false,
+    "gpu_auto_select": false,
+    "gpu_id": 0,
+    "stop_on_error": true,
+    "run_postprocess": true,
+    "cleanup_repeats": false,
+    "output_root": "output/boundedgs",
+    "python_executable": ""
+  },
+  "train_config": {
+    "loading": {
+      "sh_degree": 3,
+      "source_path": "",
+      "model_path": "",
+      "images": "images",
+      "depths": "",
+      "resolution": -1,
+      "white_background": false,
+      "init_type": "sfm",
+      "max_initial_points": -1,
+      "data_device": "cpu",
+      "training_image_upsample_factor": 1,
+      "eval": true
+    },
+    "pipeline": {
+      "debug": false,
+      "antialiasing": false
+    },
+    "boundedgs": {
+      "use_in_memory_jpeg_cache": false,
+      "jpeg_prefetch_count": 10,
+      "training_gt_mode": "leaf",
+      "group_grid": 1,
+      "projection_mode": "full",
+      "structure_update_mode": "single_pass",
+      "structure_rebuild_backend": "auto",
+      "use_compact_parameter_gradients": true,
+      "use_memory_lifecycle_trim": true,
+      "leaf_raster_budget_mib": 0.0
+    },
+    "optimization": {
+      "base": {
+        "iterations": 30000,
+        "position_lr_init": 4e-05,
+        "position_lr_final": 2e-06,
+        "position_lr_delay_mult": 0.01,
+        "position_lr_max_steps": 30000,
+        "feature_lr": 0.0025,
+        "opacity_lr": 0.025,
+        "initial_opacity": 0.1,
+        "scaling_lr": 0.005,
+        "rotation_lr": 0.001,
+        "lambda_dssim": 0.2,
+        "depth_l1_weight_init": 1.0,
+        "depth_l1_weight_final": 0.01,
+        "random_background": false,
+        "optimizer_type": "ours_adam"
+      },
+      "densification": {
+        "densification_interval": 100,
+        "densify_from_iter": 500,
+        "densify_until_iter": 15000,
+        "densify_grad_threshold": 0.0003,
+        "min_opacity": 0.005,
+        "split_distance": 0.45,
+        "opacity_reduction": 0.6,
+        "budget": 3000000,
+        "budget_multiplier": 3.0,
+        "budget_warmup_until_offset": 500
+      },
+      "gns": {
+        "use_gns_pruning": true,
+        "gns_opacity_reg": 0.002,
+        "gns_opacity_lr_scale": 5.0,
+        "final_budget": 600000,
+        "final_budget_mode": "rate",
+        "final_rate": 0.2,
+        "reg_prune_from_iter": 15000,
+        "reg_prune_until_iter": 20000
+      }
+    },
+    "runtime": {
+      "debug_from": -1,
+      "detect_anomaly": false,
+      "quiet": false,
+      "progress_bar_width": 90,
+      "save_final_model": true,
+      "test_iterations": null,
+      "save_iterations": null,
+      "checkpoint_iterations": [],
+      "start_checkpoint_dir": "",
+      "start_checkpoint_file": "",
+      "report_lpips_test": false,
+      "report_lpips_train": false,
+      "low_memory_lpips": false
+    }
+  },
+  "postprocess_config": {
+    "iteration": -1,
+    "include_train": false,
+    "skip_test": false,
+    "no_save_test_images": false,
+    "no_save_train_images": false,
+    "fps_warmup_rounds": 20,
+    "fps_measure_rounds": 20,
+    "group_grid": null,
+    "low_memory_lpips": null,
+    "quiet": false
+  },
+  "scene_config": {
+    "name": "bicycle",
+    "output_suffix": "",
+    "train_args": {},
+    "postprocess_args": {}
+  }
+}

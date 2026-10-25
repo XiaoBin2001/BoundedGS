@@ -1,0 +1,62 @@
+{
+  "gpu_id": 0,
+  "resource_limits": {
+    "cpu_max_percent": 45,
+    "memory_max_percent": 45,
+    "memory_mode": "guard"
+  },
+  "model_path": "output/original/bicycle",
+  "model_iteration": 30000,
+  "expected_train_views": 169,
+  "seed": 42,
+  "passes": 2,
+  "widths": [
+    1024,
+    2048,
+    3072,
+    4096,
+    5120,
+    6144,
+    7168,
+    8192,
+    9216,
+    10240,
+    11264,
+    12288,
+    13312,
+    14336,
+    15360,
+    16384
+  ],
+  "train_overrides": {
+    "lambda_dssim": 0.0,
+    "random_background": false
+  },
+  "variants": [
+    {
+      "name": "Original",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "BoundedGS384",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 384.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    }
+  ],
+  "memory_metric_version": 3,
+  "working_set_definition": "allocated peak minus Gaussian parameters, initialized Adam state, and persistent densification statistics",
+  "output_root": "output/resolution",
+  "experiment_type": "resolution",
+  "reference_gaussians": 5990000
+}

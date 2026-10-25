@@ -1,0 +1,69 @@
+{
+  "experiment_type": {
+    "description": "Optional fixed-model experiments dispatched by run.py",
+    "enum": ["components", "resolution", "pixel_blocks", "independent_blocks"]
+  },
+  "variants[].block_update": {
+    "description": "Fixed-model block update protocol",
+    "enum": ["standard", "compact_independent", "compact_accumulated", "original_independent"]
+  },
+  "memory_mode": {
+    "description": "resource_limits.memory_mode: RSS guard or delegated cgroup hard limit",
+    "enum": [
+      "guard",
+      "strict"
+    ]
+  },
+  "projection_mode": {
+    "description": "full uses one shared full projection, simple_split repeats full projection per crop, and group_compact enables full BoundedGS",
+    "enum": [
+      "full",
+      "simple_split",
+      "group_compact"
+    ]
+  },
+  "structure_update_mode": {
+    "description": "Gaussian densification storage update mode",
+    "enum": [
+      "multi_pass",
+      "single_pass"
+    ]
+  },
+  "structure_rebuild_backend": {
+    "description": "Single-pass Gaussian structure rebuild staging backend",
+    "enum": [
+      "auto",
+      "gpu",
+      "cpu"
+    ]
+  },
+  "training_gt_mode": {
+    "enum": [
+      "leaf",
+      "leaf_prefetch"
+    ],
+    "description": "GT supply: full uint8 upload/local float conversion (leaf); bounded next-leaf prefetch (leaf_prefetch)."
+  },
+  "optimizer_type": {
+    "description": "Dense optimizer branch",
+    "enum": [
+      "default",
+      "ours_adam"
+    ]
+  },
+  "init_type": {
+    "description": "Point-cloud initialization branch",
+    "enum": [
+      "sfm",
+      "random"
+    ]
+  },
+  "final_budget_mode": {
+    "description": "GNS final budget mode",
+    "enum": [
+      "off",
+      "num",
+      "rate"
+    ]
+  }
+}

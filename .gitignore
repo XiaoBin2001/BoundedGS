@@ -1,0 +1,11 @@
+*.pyc
+*.so
+*.pyd
+*.egg-info/
+.vscode
+output
+build
+tensorboard_3d
+screenshots
+__pycache__/
+data

@@ -1,0 +1,12 @@
+# Install a CUDA-enabled torch/torchvision pair for your machine first (see README).
+# Python dependencies and tools for building the bundled CUDA extensions.
+# Keep NumPy 1.x for the reproduction environment.
+numpy<2
+Pillow
+opencv-python
+plyfile
+tqdm
+psutil
+setuptools
+wheel
+# Optional: ninja speeds up extension builds; PyTorch can build without it.

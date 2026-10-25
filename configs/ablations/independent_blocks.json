@@ -1,0 +1,89 @@
+{
+  "gpu_id": 0,
+  "resource_limits": {
+    "cpu_max_percent": 45,
+    "memory_max_percent": 45,
+    "memory_mode": "guard"
+  },
+  "model_path": "output/component_source/bicycle",
+  "model_iteration": 15000,
+  "expected_train_views": 169,
+  "seed": 42,
+  "passes": 2,
+  "train_overrides": {
+    "lambda_dssim": 0.0,
+    "random_background": false
+  },
+  "variants": [
+    {
+      "name": "Original",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "OriginalIndependent2x2",
+      "block_update": "original_independent",
+      "parameters": {
+        "group_grid": 2,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "OriginalIndependent4x4",
+      "block_update": "original_independent",
+      "parameters": {
+        "group_grid": 4,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "CompactIndependent1x1",
+      "block_update": "compact_independent",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "CompactIndependent2x2",
+      "block_update": "compact_independent",
+      "parameters": {
+        "group_grid": 2,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "CompactIndependent4x4",
+      "block_update": "compact_independent",
+      "parameters": {
+        "group_grid": 4,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf"
+      }
+    }
+  ],
+  "memory_metric_version": 3,
+  "working_set_definition": "allocated peak minus Gaussian parameters, initialized Adam state, and persistent densification statistics",
+  "output_root": "output/appendix_independent_blocks",
+  "experiment_type": "independent_blocks",
+  "reference_gaussians": 11977613
+}

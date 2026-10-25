@@ -1,0 +1,109 @@
+{
+  "gpu_id": 0,
+  "resource_limits": {
+    "cpu_max_percent": 45,
+    "memory_max_percent": 45,
+    "memory_mode": "guard"
+  },
+  "model_iteration": 15000,
+  "seed": 42,
+  "passes": 2,
+  "source_root": "output/component_source",
+  "train_overrides": {
+    "lambda_dssim": 0.0,
+    "random_background": false
+  },
+  "scenes": [
+    {
+      "name": "bicycle",
+      "expected_train_views": 169,
+      "reference_gaussians": 11977613
+    },
+    {
+      "name": "flowers",
+      "expected_train_views": 151,
+      "reference_gaussians": 11985703
+    },
+    {
+      "name": "garden",
+      "expected_train_views": 161,
+      "reference_gaussians": 11987415
+    },
+    {
+      "name": "stump",
+      "expected_train_views": 109,
+      "reference_gaussians": 11971151
+    },
+    {
+      "name": "treehill",
+      "expected_train_views": 123,
+      "reference_gaussians": 11984374
+    }
+  ],
+  "variants": [
+    {
+      "name": "Original",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "StagedOriginal1x1DirectGrad",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf"
+      }
+    },
+    {
+      "name": "AutoLeaf384DirectGrad",
+      "parameters": {
+        "group_grid": 2,
+        "projection_mode": "full",
+        "leaf_raster_budget_mib": 384.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    },
+    {
+      "name": "CompactProjectionG1",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 384.0,
+        "use_compact_parameter_gradients": false,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    },
+    {
+      "name": "BoundedGS384",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 384.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    },
+    {
+      "name": "BoundedGS_G3_Auto128",
+      "parameters": {
+        "group_grid": 3,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 128.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    }
+  ],
+  "memory_metric_version": 3,
+  "working_set_definition": "allocated peak minus Gaussian parameters, initialized Adam state, and persistent densification statistics",
+  "output_root": "output/components",
+  "experiment_type": "components"
+}

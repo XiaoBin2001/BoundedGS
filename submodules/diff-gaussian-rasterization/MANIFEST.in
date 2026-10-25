@@ -1,0 +1,2 @@
+include *.cpp *.cu *.h
+recursive-include cuda_rasterizer *.cu *.h

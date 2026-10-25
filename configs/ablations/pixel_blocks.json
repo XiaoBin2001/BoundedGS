@@ -1,0 +1,67 @@
+{
+  "gpu_id": 0,
+  "resource_limits": {
+    "cpu_max_percent": 45,
+    "memory_max_percent": 45,
+    "memory_mode": "guard"
+  },
+  "model_path": "output/original/bicycle",
+  "model_iteration": 30000,
+  "expected_train_views": 169,
+  "seed": 42,
+  "passes": 2,
+  "widths": [
+    2048,
+    4096,
+    6144,
+    8192,
+    10240,
+    12288,
+    14336,
+    16384
+  ],
+  "train_overrides": {
+    "lambda_dssim": 0.0,
+    "random_background": false
+  },
+  "variants": [
+    {
+      "name": "CompactIndependent",
+      "block_update": "compact_independent",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    },
+    {
+      "name": "CompactAccumulated",
+      "block_update": "compact_accumulated",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 0.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    },
+    {
+      "name": "BoundedGS384",
+      "parameters": {
+        "group_grid": 1,
+        "projection_mode": "group_compact",
+        "leaf_raster_budget_mib": 384.0,
+        "use_compact_parameter_gradients": true,
+        "training_gt_mode": "leaf_prefetch"
+      }
+    }
+  ],
+  "memory_metric_version": 3,
+  "working_set_definition": "allocated peak minus Gaussian parameters, initialized Adam state, and persistent densification statistics",
+  "output_root": "output/appendix_pixel_blocks",
+  "experiment_type": "pixel_blocks",
+  "reference_gaussians": 5990000,
+  "block_width": 2048
+}
