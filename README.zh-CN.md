@@ -12,7 +12,7 @@
 Xiaobin Deng · Changyu Diao<sup>*</sup> · Min Li · Duanqing Xu<sup>*</sup><br>
 浙江大学 · <sup>*</sup>通讯作者
 
-[项目页](https://xiaobin2001.github.io/BoundedGS-Web/zh.html) · [论文 PDF](https://xiaobin2001.github.io/BoundedGS-Web/assets/boundedgs-paper.pdf) · arXiv：待更新
+[项目页](https://xiaobin2001.github.io/BoundedGS-Web/zh.html) · [论文 PDF](https://xiaobin2001.github.io/BoundedGS-Web/assets/boundedgs-paper.pdf) · [arXiv](https://arxiv.org/abs/2610.34233)
 
 BoundedGS 关注高分辨率 3D Gaussian Splatting（3DGS）训练中的临时显存开销。它把一张图像划分成较小的区域，依次完成计算并累积梯度，最后对整张视图执行一次模型更新，让高分辨率训练更容易落地。
 
@@ -152,7 +152,19 @@ BoundedGS 从 [ImprovedGS 开源代码库](https://github.com/XiaoBin2001/Improv
 
 ## 5. 引用与许可
 
-BibTeX：待更新。
+如果本工作对你的研究有帮助，欢迎引用：
+
+```bibtex
+@misc{deng2026boundedgsmemoryefficienthighresolutiontraining,
+      title={BoundedGS: Memory-Efficient High-Resolution Training for 3D Gaussian Splatting},
+      author={Xiaobin Deng and Changyu Diao and Min Li and Duanqing Xu},
+      year={2026},
+      eprint={2610.34233},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2610.34233},
+}
+```
 
 上游论文及引用信息见 [ImprovedGS](https://github.com/XiaoBin2001/Improved-GS)。
 

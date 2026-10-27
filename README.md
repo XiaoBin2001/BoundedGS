@@ -12,7 +12,7 @@
 Xiaobin Deng · Changyu Diao<sup>*</sup> · Min Li · Duanqing Xu<sup>*</sup><br>
 Zhejiang University · <sup>*</sup>Corresponding authors
 
-[Project page](https://xiaobin2001.github.io/BoundedGS-Web/) · [Paper (PDF)](https://xiaobin2001.github.io/BoundedGS-Web/assets/boundedgs-paper.pdf) · arXiv: coming soon
+[Project page](https://xiaobin2001.github.io/BoundedGS-Web/) · [Paper (PDF)](https://xiaobin2001.github.io/BoundedGS-Web/assets/boundedgs-paper.pdf) · [arXiv](https://arxiv.org/abs/2610.34233)
 
 BoundedGS makes high-resolution 3D Gaussian Splatting (3DGS) training more manageable by controlling temporary rendering memory. It processes an image in smaller regions, accumulates their gradients, and updates the model once for the complete view.
 
@@ -152,7 +152,19 @@ We thank the ImprovedGS authors and the contributors to 3D Gaussian Splatting, A
 
 ## 5. Citation and license
 
-BibTeX: coming soon.
+If this work helps your research, please cite:
+
+```bibtex
+@misc{deng2026boundedgsmemoryefficienthighresolutiontraining,
+      title={BoundedGS: Memory-Efficient High-Resolution Training for 3D Gaussian Splatting},
+      author={Xiaobin Deng and Changyu Diao and Min Li and Duanqing Xu},
+      year={2026},
+      eprint={2610.34233},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2610.34233},
+}
+```
 
 See [ImprovedGS](https://github.com/XiaoBin2001/Improved-GS) for the upstream paper and citation.
 
